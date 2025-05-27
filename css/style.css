@@ -15,10 +15,10 @@
   --theme-color4-rgb: 202, 178, 147;
   --theme-color-light-rgb: 255, 255, 255;
   --theme-color-dark-rgb: 0, 0, 0;
-  --theme-color1: #aa8453;
+  --theme-color1: #6e34ad;
   --theme-color2: #fdece3;
   --theme-color3: #faf7f2;
-  --theme-color4: #cab293;
+  --theme-color4:#6e34ad;
   --review-color: #fdc009;
   --theme-color-light: #FFFFFF;
   --theme-color-white: #FFFFFF;
@@ -509,11 +509,11 @@ figure.image {
   margin-left: -75px;
   margin-top: -30px;
   height: 50px;
-  background-position: center center;
-  background-repeat: no-repeat;
+    background-position: initial;
+    background-repeat: round;
   -webkit-animation: pulse 1s infinite linear;
           animation: pulse 1s infinite linear;
-  background-image: url(../images/favicon.png);
+  background-image: url(../images/logo-dark.png);
   content: "";
 }
 .preloader:before {
@@ -4111,7 +4111,7 @@ Section Title
   border-color: transparent;
   z-index: 99;
   position: relative;
-  border: 1px solid #aa8453;
+  border: 1px solid #6e34ad;
   padding: 10px;
 }
 .checkout-form-section .checkout-form .checkout-field .chk-field i {
@@ -5639,13 +5639,13 @@ Section Title
   height: calc(100% - 1px);
 }
 .service-block .inner-box:hover {
-  background-color: var(--theme-color-dark);
+/*  background-color: var(--theme-color-dark);*/
 }
 .service-block .inner-box:hover .content-box .title {
-  color: var(--theme-color-light);
+  color: #6e34ad;
 }
 .service-block .inner-box:hover .content-box .text {
-  color: var(--theme-color-light);
+  color:#6e34ad;
 }
 .service-block .inner-box:hover .icon-box {
   -webkit-transform: rotate(-360deg);
@@ -6544,7 +6544,7 @@ Section Title
   z-index: 99;
 }
 .testimonial-column .inner-column .testimonial-slide .content-box .image-box .thumb::before {
-  background-color: #a98860;
+/*  background-color: #a98860;*/
   content: "";
   height: 200px;
   position: absolute;
@@ -10272,7 +10272,7 @@ Section Title
 .booking-section {
   position: relative;
   padding: 110px 0 107px;
-  margin-top: 87px;
+  margin: 200px 0px 100px 0px;
 }
 .booking-section:before {
   content: "";
@@ -10722,7 +10722,7 @@ Section Title
           align-items: center;
   color: #adadad;
   line-height: 30px;
-  margin-bottom: 23px;
+  margin-bottom: 10px;
   padding-left: 25px;
 }
 .recent-post .inner .post-info i {
@@ -12396,7 +12396,7 @@ Section Title
 
 .product-block .content {
   position: relative;
-  padding: 30px 30px 30px;
+  padding: 10px;
 }
 
 .product-block h4 {
