@@ -7637,10 +7637,10 @@ Section Title
   background-color: var(--theme-color1);
 }
 .feature-row .content-column .inner-column .sec-title {
-  margin-bottom: 34px;
+  margin-bottom: 10px;
 }
 .feature-row .content-column .inner-column .sec-title .text {
-  margin-top: 31px;
+  margin-top: 0px;
 }
 .feature-row .content-column .inner-column .sec-title .sub-title {
   margin-bottom: 11px;
@@ -12338,6 +12338,7 @@ Section Title
   overflow: hidden;
   -webkit-transition: all 300ms ease;
   transition: all 300ms ease;
+  height: calc(100% - 0px);
 }
 
 .product-block .inner-box:hover {
