@@ -15085,3 +15085,6 @@ Sidebar
   background-color: #fff;
   height: 180px;
 }
+.footer-bottom.wow.slideInUp.animated a {
+    color: #ae64ff;
+}
