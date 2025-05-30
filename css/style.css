@@ -15088,3 +15088,12 @@ Sidebar
 .footer-bottom.wow.slideInUp.animated a {
     color: #ae64ff;
 }
+.testimonials {
+    border: 3px solid #6e34ad;
+    border-bottom-right-radius: 50px;
+    border-top-left-radius: 50px;
+    background-color: #f7f1f13d;
+    padding: 15px;
+    margin-bottom: 20px;
+    height: calc(100% - 30px);
+}
