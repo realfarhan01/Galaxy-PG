@@ -2027,7 +2027,7 @@ Main Header
   display: none;
 }
 .header-style-one .mobile-nav-toggler span {
-  color: #fff;
+  color: #6e34ad;
 }
 .header-style-one .main-menu .navigation > li > ul > li > a:hover {
   color: var(--theme-color1);
@@ -4212,7 +4212,7 @@ Section Title
 }
 @media only screen and (max-width: 991px) {
   .banner-section .banner-slider {
-    height: 800px;
+    height: 330px;
   }
   .checkout-form-section .checkout-form .checkout-field .chk-field input,
   .checkout-form-section .checkout-form .checkout-field .chk-field select {
@@ -4223,6 +4223,12 @@ Section Title
   }
 }
 @media only screen and (max-width: 767px) {
+  .checkout-form-section {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
   .banner-section .content-box {
     min-width: 100%;
   }
@@ -4238,7 +4244,7 @@ Section Title
 }
 @media only screen and (max-width: 576px) {
   .banner-section .content-box {
-    margin-top: -80px;
+    margin-top: 30px;
   }
   .checkout-form-section .checkout-form .checkout-field .chk-field input,
   .checkout-form-section .checkout-form .checkout-field .chk-field select {
