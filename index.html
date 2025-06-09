@@ -23,6 +23,18 @@
    </head>
    <body>
       <div class="page-wrapper">
+         <div class="sidebar-btn">
+            <div class="side-calling-btn">
+                <a href="tel:+917877224455">
+                    <i class="fa fa-phone"></i>
+                </a>
+            </div>
+            <div class="side-whatsapp-btn">
+                <a href="https://wa.me/+917877224455">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
          <div class="preloader"></div>
          <header class="main-header header-style-one">
             <div class="auto-container">
@@ -177,36 +189,33 @@
             </div>
             <div class="checkout-form-section wow slideInUp">
                <div class="auto-container">
-                  <div class="checkout-form row">
-                     <div class="checkout-field col-md-3">
-                        <div class="chk-field">
-                           <input type="text" placeholder="Enter Name" />
-                           <i class="fa fa-user"></i>
-                        </div>
-                     </div>
-                     <div class="checkout-field col-md-3">
-                        <div class="chk-field">
-                           <input type="text" placeholder="Enter Number" />
-                           <i class="fa fa-phone"></i>
-                        </div>
-                     </div>
-                     <div class="checkout-field br-0 col-md-3">
-                        <div class="chk-field">
-                           <i class="fa fa-angle-down"></i>
-                           <select>
-                              <option>Standard Room Size </option>
-                              <option>Standard Room Size </option>
-                              <option>Standard Room Size </option>
-                              <option>Standard Room Size </option>
-                           </select>
-                        </div>
-                     </div>
-                     <div class="col-md-3">
-                        <a href="#." class="theme-btn btn-style-one" style="width:100%;">
-                           <span class="btn-title">check now</span>
-                        </a>
-                     </div>
-                  </div>
+                   <form method="post" action="mailbox.aspx">
+                       <div class="checkout-form row">
+                           <div class="checkout-field col-md-3">
+                               <div class="chk-field">
+                                   <input type="text" name="name" id="name" placeholder="Enter Name" required />
+                                   <i class="fa fa-user"></i>
+                               </div>
+                           </div>
+                           <div class="checkout-field col-md-3">
+                               <div class="chk-field">
+                                   <input type="text" name="phone" maxlength="10" mimlength="10" id="phone" placeholder="Enter Number" required />
+                                   <i class="fa fa-phone"></i>
+                               </div>
+                           </div> 
+                           <div class="checkout-field col-md-3">
+                               <div class="chk-field">
+                                   <input type="text" name="message" id="message" placeholder="Enter Message" required />
+                                   <i class="fa fa-message"></i>
+                               </div>
+                           </div>                           
+                           <div class="col-md-3">
+                               <button class="theme-btn btn-style-one" style="width:100%;" id="singlebutton" name="singlebutton" type="submit">
+                                    <span class="btn-title">check now</span>
+                               </button>
+                           </div>
+                       </div>
+                   </form>
                </div>
             </div>
          </section>
@@ -486,6 +495,23 @@
                </div>
             </div>
          </section>
+         <section>
+            <div class="container">
+               <div class="row justify-content-center">
+                  <div class="sec-title text-center wow slideInUp">
+                     <span class="sub-title">Review</span>
+                     <h2>Our Student Review</h2>
+                  </div>
+                  <div class="col-lg-6">                     
+                      <video id="myVideo" controls autoplay loop width="100%">
+                        <source src="images/review-01.mp4" type="video/mp4">
+                        <source src="images/review-01.mp4" type="video/ogg">
+                     </video>
+                     <h4 class="text-center">Tanish Booti</h4>
+                  </div>
+               </div>
+            </div>
+         </section>
          <section class="video-section">
             <div class="bg bg-image" style="background-image: url(images/background/1.jpg);"></div>
             <div class="auto-container">
@@ -673,8 +699,8 @@
                   <div class="testimonial-column col-lg-8 col-md-12">
                      <div class="inner-column">
                         <div class="sec-title light wow fadeInUp">
-                           <span class="sub-title">What says for customer</span>
-                           <h2> What Client's Say?</h2>
+                           <span class="sub-title">What says for Student</span>
+                           <h2> What Student's Say?</h2>
                         </div>
                         <div class="testimonial-slider wow fadeInUp">
                            <div class="testimonial-slide">

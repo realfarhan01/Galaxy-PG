@@ -15103,3 +15103,25 @@ Sidebar
     margin-bottom: 20px;
     height: calc(100% - 30px);
 }
+.sidebar-btn .side-calling-btn a {
+    position: fixed;
+    z-index: 99;
+    right: 1%;
+    bottom: 19%;
+    display: inline-block;
+    background: #008000;
+    padding: 4px 10px;
+    font-size: 20px;
+    color: white;
+}
+.sidebar-btn .side-whatsapp-btn a {
+    position: fixed;
+    z-index: 99;
+    right: 1%;
+    bottom: 10%;
+    display: inline-block;
+    background: #008000;
+    padding: 4px 11px;
+    font-size: 20px;
+    color: white;
+}
