@@ -1,57 +1,68 @@
-﻿
-Partial Class mailbox
+﻿Partial Class mailbox
     Inherits System.Web.UI.Page
+
     Shared EmailChk As Integer = 0
     Shared MobileChk As Integer = 0
-    'https://gesaleservices.in/mailbox.aspx?fnm=Abhi&mob=7791926666&adate=23-06-2021
+
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not IsPostBack Then
             If Not Request.Form("name") Is Nothing Then
-                Dim Result As String = ""
-                Result = Mail(Request.Form("name"), Request.Form("phone"), Request.Form("service"), Request.Form("emails"), Request.Form("message"))
+                Dim name As String = Request.Form("name").Trim()
+                Dim phone As String = Request.Form("phone").Trim()
+                Dim message As String = Request.Form("message").Trim()
+                Dim honeypot As String = Request.Form("website").Trim() ' hidden field
+
+                ' ===== SPAM CHECK (honeypot) =====
+                If honeypot <> "" Then
+                    ' Bot filled hidden field
+                    Return
+                End If
+
+                ' ===== SPAM CHECK (keywords) =====
+                Dim spamWords() As String = {"viagra", "free money", "loan", "porn", "sex", "hack", "free", "xxx", "price", "http", "https"}
+                For Each word In spamWords
+                    'If message.ToLower().Contains(word) OrElse emails.ToLower().Contains(word) Then
+                    '    ShowAlertAndGoBack("Spam content detected. Submission blocked.")
+                    '    Return
+                    'End If
+                Next
+
+                ' ===== VALIDATION =====
+                If name = "" OrElse Not System.Text.RegularExpressions.Regex.IsMatch(name, "^[a-zA-Z\s]+$") Then
+                    ShowAlertAndGoBack("Please enter a valid name.")
+                    Return
+                End If
+
+                If phone = "" OrElse Not System.Text.RegularExpressions.Regex.IsMatch(phone, "^\d{10}$") Then
+                    ShowAlertAndGoBack("Please enter a valid 10-digit mobile number.")
+                    Return
+                End If
+
+                ' ===== SEND EMAIL =====
+                Dim Result As String = Mail(name, phone, message)
 
                 ClientScript.RegisterStartupScript(Page.[GetType](), "alert", "alert('Thank you for your request. We will contact you as soon as possible.');window.location.href='/';", True)
-
-
-
-                'Response.Write(Result)
-                'ClientScript.RegisterStartupScript(Page.[GetType](), "alert", "alert('Thank you for your request. Our team will contact you between 9 AM  to 5 PM.');window.location='http://goyalpilescentre.com/';", True)
-                'Response.Redirect("flooring-services")
             End If
         End If
     End Sub
-    'Protected Sub commit_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles commit.Click
-    '    If Not String.IsNullOrEmpty(txtemail.Text) Then
-    '        SendEmail()
-    '    End If
-    'End Sub
-    'Private Sub SendEmail()
-    '    'Dim dt As DataTable = BLL.ExecDataTable("select MemberName,Password,Memberid from dbo.MemberMaster where Email=@Email", "@Email", txtemail.Text)
-    '    'If (dt.Rows.Count > 0 AndAlso dt IsNot Nothing) Then
-    '    Dim Result As String
-    '    Try
-    '        Dim templateVars As New Hashtable()
-    '        templateVars.Add("IPAddress", Request.ServerVariables("remote_addr"))
-    '        Result = Email.SendEmailTron("testing.htm", templateVars, "info@tronfactory.network", txtemail.Text, "Testing Mail", "")
 
-    '        litmsg.Text = Result
-    '    Catch ex As Exception
-    '        litmsg.Text = ex.ToString()
+    Private Sub ShowAlertAndGoBack(ByVal message As String)
+        ClientScript.RegisterStartupScript(Page.[GetType](), "alert", "alert('" & message.Replace("'", "\'") & "');window.history.back(-1);", True)
+    End Sub
 
-    '    End Try
-
-    'End Sub
-    Private Shared Function Mail(ByVal name As String, ByVal phone As String, ByVal service As String, ByVal emails As String, ByVal message As String) As String
-
+    Private Shared Function Mail(ByVal name As String, ByVal phone As String, ByVal message As String) As String
         Dim Result As String = ""
         Dim templateVars As New Hashtable()
         templateVars.Add("Name", name.ToUpper())
         templateVars.Add("Mobile", phone)
-        templateVars.Add("Email", emails)
         templateVars.Add("Message", message)
-        'templateVars.Add("Message", message)
-        'Result = Email.SendEmail("contact_email.htm", templateVars, "website@aspiretechnosys.com", "testingvb.net@gmail.com", "Website Enquiry Relife Spine Care", "")
-        Result = Email.SendEmail("contact_email.htm", templateVars, System.Configuration.ConfigurationManager.AppSettings("email"), System.Configuration.ConfigurationManager.AppSettings("infoemail"), "Website Appointment", System.Configuration.ConfigurationManager.AppSettings("bccemail"))
+
+        Result = Email.SendEmail("contact_email.htm", templateVars,
+            System.Configuration.ConfigurationManager.AppSettings("email"),
+            System.Configuration.ConfigurationManager.AppSettings("infoemail"),
+            "Website Appointment",
+            System.Configuration.ConfigurationManager.AppSettings("bccemail"))
+
         Return Result
     End Function
 End Class

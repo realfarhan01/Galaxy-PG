@@ -175,42 +175,33 @@
                         <span class="sub-title before-none">Send us email</span>
                         <h2>Feel free to write</h2>
                      </div>
-                     <form id="contact_form" name="contact_form" action="#." method="post">
+                     <form id="contact_form" name="contact_form" method="post" action="mailbox.aspx">
                         <div class="row">
-                           <div class="col-sm-6">
+                           <div class="col-sm-12">
                               <div class="mb-3">
-                                 <input name="form_name" class="form-control" type="text" placeholder="Enter Name">
-                              </div>
-                           </div>
-                           <div class="col-sm-6">
-                              <div class="mb-3">
-                                 <input name="form_email" class="form-control required email" type="email" placeholder="Enter Email">
+                                 <input name="name" id="name" class="form-control" type="text" placeholder="Enter Name">
                               </div>
                            </div>
                         </div>
                         <div class="row">
-                           <div class="col-sm-6">
+                           <div class="col-sm-12">
                               <div class="mb-3">
-                                 <input name="form_subject" class="form-control required" type="text" placeholder="Enter Subject">
-                              </div>
-                           </div>
-                           <div class="col-sm-6">
-                              <div class="mb-3">
-                                 <input name="form_phone" class="form-control" type="text" placeholder="Enter Phone">
+                                 <input name="phone" id="phone" class="form-control" type="text" placeholder="Enter Phone">
                               </div>
                            </div>
                         </div>
                         <div class="mb-3">
-                           <textarea name="form_message" class="form-control required" rows="7" placeholder="Enter Message"></textarea>
+                           <textarea name="message" id="message" class="form-control required" rows="7" placeholder="Enter Message"></textarea>
                         </div>
                         <div class="mb-5">
                            <input name="form_botcheck" class="form-control" type="hidden" value="" />
                            <button type="submit" class="theme-btn btn-style-one" data-loading-text="Please wait...">
                               <span class="btn-title">Send message</span>
                            </button>
-                           <button type="reset" class="theme-btn btn-style-one bg-theme-color5">
+                           <button type="reset" class="theme-btn btn-style-one bg-theme-color5" id="singlebutton" name="singlebutton">
                               <span class="btn-title">Reset</span>
                            </button>
+                            <input type="text" name="website" style="display:none;" autocomplete="off">
                         </div>
                      </form>
                   </div>

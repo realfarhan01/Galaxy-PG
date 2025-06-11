@@ -35,9 +35,15 @@
         Dim sPathAcurate As String = System.Web.HttpContext.Current.Request.Url.AbsolutePath
         Dim PageNameAcurate As String = sPathAcurate.Replace("/", "")
         Dim CallPage As String = ""
-        If Not originalPath.Contains(".jpg") AndAlso Not originalPath.Contains(".png") AndAlso Not originalPath.Contains(".pdf") AndAlso Not originalPath.Contains(".aspx") Then
-            If originalPath <> "/" And originalPath.Contains("/") And Not originalPath.Contains(".html") Then
+        If Not originalPath.Contains(".jpg") AndAlso Not originalPath.Contains(".png") AndAlso Not originalPath.Contains(".aspx") AndAlso Not originalPath.Contains(".pdf") Then
+            If originalPath <> "/" And originalPath.Contains("/") And Not originalPath.Contains(".html") And Not originalPath.Contains("/blogs") And Not originalPath.Contains("-blog") Then
                 CallPage = originalPathAcurate.Replace(PageNameAcurate, originalPath & ".html")
+                Context.RewritePath(CallPage, False)
+            ElseIf originalPath.Contains("/blogs") Then
+                CallPage = originalPathAcurate.Replace(PageNameAcurate, "blogs.aspx")
+                Context.RewritePath(CallPage, False)
+            ElseIf originalPath.Contains("-blog") Then
+                CallPage = originalPathAcurate.Replace(PageNameAcurate, "blog.aspx?page=" + PageName)
                 Context.RewritePath(CallPage, False)
             End If
         End If

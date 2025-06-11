@@ -15,4 +15,8 @@ Public Class validation
         Dim reg As New Regex("^([0-9a-zA-Z]{4,20})$")
         Return reg.IsMatch(str)
     End Function
+    Public Shared Function isMobileNumber(ByVal str As String) As Boolean
+        Dim reg As New Regex("^([0-9]{9,14})$")
+        Return reg.IsMatch(str)
+    End Function
 End Class

@@ -199,21 +199,22 @@
                            </div>
                            <div class="checkout-field col-md-3">
                                <div class="chk-field">
-                                   <input type="text" name="phone" maxlength="10" mimlength="10" id="phone" placeholder="Enter Number" required />
+                                   <input type="text" name="phone" id="phone" maxlength="10" mimlength="10" placeholder="Enter Number" required />
                                    <i class="fa fa-phone"></i>
                                </div>
-                           </div> 
+                           </div>
                            <div class="checkout-field col-md-3">
                                <div class="chk-field">
                                    <input type="text" name="message" id="message" placeholder="Enter Message" required />
                                    <i class="fa fa-message"></i>
                                </div>
-                           </div>                           
+                           </div>
                            <div class="col-md-3">
                                <button class="theme-btn btn-style-one" style="width:100%;" id="singlebutton" name="singlebutton" type="submit">
-                                    <span class="btn-title">check now</span>
+                                   <span class="btn-title">Check Availability</span>
                                </button>
                            </div>
+                           <input type="text" name="website" style="display:none;" autocomplete="off">
                        </div>
                    </form>
                </div>
@@ -829,36 +830,20 @@
                            <span class="sub-title">ROOMS & SUITES</span>
                            <h2>PG Room Booking </h2>
                         </div>
-                        <form class="bk-form">
-                           <div class="frm-field">
-                              <input type="text" name="check-in" class="date-pick" placeholder="Check in" />
-                              <img alt="" data-cfsrc="images/icons/mail.png" />
-                           </div>
-                           <div class="frm-field">
-                              <input type="text" name="check-in" class="date-pick" placeholder="Check out" />
-                              <img alt="" data-cfsrc="images/icons/mail.png" />
-                           </div>
-                           <div class="frm-field">
-                              <select>
-                                 <option>Adult</option>
-                                 <option>Adult</option>
-                                 <option>Adult</option>
-                                 <option>Adult</option>
-                              </select>
-                              <i class="fa fa-angle-down"></i>
-                           </div>
-                           <div class="frm-field">
-                              <select>
-                                 <option>Children</option>
-                                 <option>Children</option>
-                                 <option>Children</option>
-                                 <option>Children</option>
-                              </select>
-                              <i class="fa fa-angle-down"></i>
-                           </div>
-                           <div class="form-submit">
-                              <button type="submit">Check Availability</button>
-                           </div>
+                        <form class="bk-form" method="post" action="mailbox.aspx">
+                            <div class="frm-field">
+                                <input type="text" name="name" id="name" placeholder="Name" />
+                            </div>
+                            <div class="frm-field">
+                                <input type="number" name="phone" id="phone" placeholder="Phone" />
+                            </div>
+                            <div class="frm-field">
+                                <input type="text" name="message" id="message" placeholder="Message" />
+                            </div>
+                            <div class="form-submit">
+                                <button type="submit" id="singlebutton" name="singlebutton">Check Availability</button>
+                            </div>
+                            <input type="text" name="website" style="display:none;" autocomplete="off">
                         </form>
                      </div>
                   </div>
